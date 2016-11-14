@@ -1,0 +1,8 @@
+Robot Controller
+X	X speed of the robot	3	SLIDER	x	0	1.0	0.0
+Y	Y speed of the robot	3	SLIDER	y	0	1.0	0.0
+ROTATE_X	Rotate speed	3	SLIDER	rz	0	1.0	0.0
+ROTATE_Y	Debug only	3	SLIDER	z	0	1.0	0.0
+KICK	Kick	1	BUTTON	Trigger	0	0.0	0.0
+ID_NEXT	Switch to next robot	1	BUTTON	Base 3	0	0.0	0.0
+ID_PREVIOUS	Switch to previous robot	1	BUTTON	Base	0	0.0	0.0
