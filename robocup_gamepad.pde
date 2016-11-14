@@ -22,6 +22,7 @@ private int mod(int a, int b){
 public class Gamepad {
    private ControlDevice device = null;
    public float x;
+   public float tempx;
    public float y;
    public float rotate;
    public float rotate_y;
@@ -39,13 +40,13 @@ public class Gamepad {
    }
    
    public void update(){
-      x = device.getSlider("X").getValue();
-      y = device.getSlider("Y").getValue();
+      x = -device.getSlider("Y").getValue();
+      y = -device.getSlider("X").getValue();
       PVector vxy = new PVector(x, y);
       if (vxy.mag() > 1.0) {
        vxy.normalize();
        x = vxy.x;
-       y = vxy.y;
+       y = vxy.y; 
       }
       
       rotate = device.getSlider("ROTATE_X").getValue();
@@ -54,8 +55,10 @@ public class Gamepad {
       if (vRotate.mag() > 1.0) {
        vRotate.normalize();
        rotate = vRotate.x;
-       rotate_y = vRotate.y;
+       rotate_y = vRotate.y; 
       }
+      rotate = -rotate * 6.28; // scaling a 1 tour/sec
+      //rotate_y = rotate_y * 6.28;
       
       kick = device.getButton("KICK").getValue() > 0.0;
 
